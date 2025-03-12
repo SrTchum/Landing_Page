@@ -1,145 +1,176 @@
-/* 
-=====================
-Estilização Global
-=====================
-*/
-
-
-
-
-
 body {
-    font-family: Arial, Helvetica, sans-serif; /* Altera o tipo de fonte presente no documento */
+    font-family: Arial, Helvetica, sans-serif;
     background-color: #f7f7f7;
     display: grid;
     justify-items: center;
-    margin: 0px;
     gap: 60px;
     margin-top: 60px;
 }
 
 p {
-    font-size: 20px; /* Alterando o tamanho dos parágrafos de 16px (padrão) para 20px */
+    font-size: 20px;
 }
 
 a {
-    text-decoration: none; /* Tira qualquer decoração que tenha na tag [a]*/
+    text-decoration: none;
 }
 
 img {
-    max-width: 100%; /* Evita o overflow, a img ocupa 100% do elemento pai */
-     display: block; /* faz com que a imagem se comporte sempre como um bloco, ou seja, do inicio ao fim do container.  */
+    max-width: 100%;
+    display: block;
 }
 
 li {
-    list-style: none; /*  */
+    list-style: none;
 }
 
-p,h1,h2,h3 {
+p,
+h1,
+h2,
+h3 {
     margin: 0px;
 }
 
-/* 
-=====================
-Estilização do header
-=====================
-*/
-
 .menu {
-    display: flex; /* Alinha os itens na horizontal */
-    gap: 50px; /* Cria um distânciamento entre os itens */
+    display: flex;
+    gap: 150px;
+    padding-top: 30px;
 }
 
 .menu a {
     background-color: #ffffff;
-    padding: 15px 30px; /* Espaçamento interno, quando utilizamos o atalho padding com dois valores, o primeiro valor é para cima/baixo e o segundo valor para direita/esquerda */
-    border-radius: 4px; /* Arredonda as laterais da borda */
-    color: #0c1e2a;
-    text-transform: uppercase; /* Deixa o texto com letras maiúsculas */
+    padding: 15px 30px;
+    border-radius: 5px;
+    color: #000000;
+    text-transform: uppercase;
 }
 
 .menu a:hover {
-    background-color: #ee2211;
+    background-color: rgb(131, 6, 6);
     color: #ffffff;
 }
-
-/* 
-=====================
-Estilização do Conteudo
-=====================
-*/
-
 
 .conteudo {
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 1000px;
+    text-align: center;
+    /* Centraliza o texto em telas maiores */
 }
 
 .introducao {
     background-color: #ffffff;
-    padding: 40px;
-    text-align: right;
+    padding: 50px;
     display: grid;
     align-content: center;
-    justify-items: end;
+    justify-items: center;
+    /* Centraliza os itens */
     gap: 20px;
 }
 
-.subtitulo {
-    font-size: 64px;
-    text-transform: uppercase;
-    padding: 40px;
-    color: rgba(0, 0, 0, 0.2);
-    text-align: end;
-    align-items: center;
-}
-
 .botao {
-    background-color: #ee2211;
+    background-color: red;
     color: #ffffff;
     padding: 15px 30px;
     text-transform: uppercase;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
-
-
-
-/* 
-=============================
-estilização das vantagens
-=============================
-*/
+.subtitulo {
+    font-size: 60px;
+    text-transform: uppercase;
+    padding: 40px;
+    color: rgba(0, 0, 0, 0.2);
+    align-self: center;
+}
 
 .vantagens {
     background-color: #ffffff;
     padding: 40px;
+    text-align: center;
+    /* Centraliza o texto das vantagens */
 }
 
 .vantagens-item {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto;
     gap: 10px 20px;
     padding: 20px;
-
 }
 
 .vantagens-item p {
     grid-column: 2;
 }
 
-/* 
-=============================
-estilização do rodape
-=============================
-*/
-
 .rodape {
     background-color: #ffffff;
-    padding: 40px 0;
+    padding: 40px 0px;
     text-align: center;
     width: 100%;
-    /* faz com que o elemento atual fique 100% do tamanho do elemento pai (vc não está utilizando display) */
     box-sizing: border-box;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 1200px) {
+    .menu {
+        gap: 100px;
+    }
+
+    .subtitulo {
+        font-size: 50px;
+    }
+
+    .conteudo {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .conteudo {
+        grid-template-columns: 1fr;
+        /* Uma coluna em telas pequenas */
+    }
+
+    .introducao {
+        text-align: center;
+        /* Centraliza o texto */
+        justify-items: center;
+    }
+
+    .subtitulo {
+        font-size: 40px;
+        /* Diminui o tamanho da fonte */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        margin-top: 30px;
+        gap: 30px;
+    }
+
+    .menu {
+        gap: 10px;
+    }
+
+    .botao {
+        padding: 10px 20px;
+        /* Diminui o padding do botão */
+    }
+
+    .subtitulo {
+        font-size: 30px;
+        /* Diminui ainda mais o tamanho da fonte */
+    }
+
+    .vantagens-item {
+        grid-template-columns: 1fr;
+        /* Uma coluna para itens de vantagens */
+    }
 }
